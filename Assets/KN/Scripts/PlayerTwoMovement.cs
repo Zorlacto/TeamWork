@@ -28,21 +28,22 @@ public class PlayerTwoMovement : MonoBehaviour
             rb.velocity = new Vector2(0, jumpforce);
         }
 
-        if (Input.GetKey(KeyCode.L) || Input.GetKey(KeyCode.RightArrow))
+        if (Input.GetKey(KeyCode.L) || Input.GetKey(KeyCode.RightArrow) && grounded)
         {
             rb.velocity = new Vector2(speed, 0);
         }
-        if (Input.GetKey(KeyCode.J) || Input.GetKey(KeyCode.LeftArrow))
+        if (Input.GetKey(KeyCode.J) || Input.GetKey(KeyCode.LeftArrow) && grounded)
         {
             rb.velocity = new Vector2(-speed, 0);
         }
-        
+
+        isGrounded();
     }
 
-    /*void isGrounded()
+    void isGrounded()
     {
-        grounded = Physics2D.OverlapCircle(groundCheck.position, 5f, groundLayer);
-    }*/
+        grounded = Physics2D.OverlapCircle(groundCheck.position, 0.15f, groundLayer);
+    }
 
     /*void OnCollisionEnter2D(Collision collision)
     {
