@@ -19,7 +19,7 @@ public class Timer : MonoBehaviour
     void Start()
     {
         startTime = Time.time;
-
+        Time.timeScale = 1;
         health = 2f;
 
 

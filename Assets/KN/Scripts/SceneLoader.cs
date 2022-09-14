@@ -21,11 +21,13 @@ public class SceneLoader : MonoBehaviour
 
     public void StartGame()
     {
+        Time.timeScale = 1;
         SceneManager.LoadScene(1, LoadSceneMode.Single);
     }
 
     public void MainMenu()
     {
+        Time.timeScale = 1;
         SceneManager.LoadScene(0, LoadSceneMode.Single);
     }
 }
