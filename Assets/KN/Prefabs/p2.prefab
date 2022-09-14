@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 5028878497231564798}
   m_Layer: 0
   m_Name: p2
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -127,6 +127,7 @@ MonoBehaviour:
     m_Bits: 64
   grounded: 0
   player: {fileID: 0}
+  health: 0
 --- !u!58 &5028878497231564798
 CircleCollider2D:
   m_ObjectHideFlags: 0
