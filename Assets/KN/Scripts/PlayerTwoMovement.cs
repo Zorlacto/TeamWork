@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerTwoMovement : MonoBehaviour
 {
-
+    
     Rigidbody2D rb;
 
     public float jumpforce;
@@ -16,10 +16,15 @@ public class PlayerTwoMovement : MonoBehaviour
 
     public GameObject player;
 
+    public float health;
+
+    DamagePlayer damagePlayer;
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         grounded = false;
+        health = 10f;
     }
 
     // Update is called once per frame
@@ -50,19 +55,13 @@ public class PlayerTwoMovement : MonoBehaviour
                 rb.velocity = new Vector2(-speed, rb.velocity.y);
             }
         }
-        /*else
-        {
-            float dragTime = 1f;
-            dragTime = 7f;
-            if (rb.velocity.x < 0)
-            {
-                rb.velocity = new Vector2(-dragTime, rb.velocity.y);
-            }
-            else if (rb.velocity.x > 0){
-                rb.velocity = new Vector2(dragTime, rb.velocity.y);
-            }
-            
-        }*/
+        
+    }
+
+
+    public void UpdateHealth()
+    {
+        health -= 1f;
     }
 
     void isGrounded()
