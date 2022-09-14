@@ -55,7 +55,13 @@ public class PlayerTwoMovement : MonoBehaviour
                 rb.velocity = new Vector2(-speed, rb.velocity.y);
             }
         }
-        
+        else
+        {
+            float dragTime = 1f;
+            dragTime = 0f;
+            rb.velocity = new Vector2(dragTime, rb.velocity.y);
+        }
+
     }
 
 

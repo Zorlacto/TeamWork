@@ -20,7 +20,7 @@ public class Timer : MonoBehaviour
     {
         startTime = Time.time;
 
-        health = 10f;
+        health = 2f;
 
 
     }

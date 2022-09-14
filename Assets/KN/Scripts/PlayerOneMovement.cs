@@ -52,11 +52,11 @@ public class PlayerOneMovement : MonoBehaviour
                 rb.velocity = new Vector2(-speed, rb.velocity.y);
             }
         }
-        /*else
+        else
         {
             float dragTime = 1f;
-            dragTime = 7f;
+            dragTime = 0f;
             rb.velocity = new Vector2(dragTime, rb.velocity.y);
-        }*/
+        }
     }
 }
