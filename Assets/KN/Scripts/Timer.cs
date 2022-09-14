@@ -11,15 +11,25 @@ public class Timer : MonoBehaviour
     private float startTime;
     public GameObject gameover;
 
+
+
+    public float health;
+
     // Start is called before the first frame update
     void Start()
     {
         startTime = Time.time;
+
+        health = 10f;
+
+
     }
 
     // Update is called once per frame
     void Update()
     {
+        //GameObject.FindObjectOfType<PlayerTwoMovement>().health;
+
         float t = Time.time - startTime;
 
         string minutes = ((int)t / 60).ToString();
@@ -27,7 +37,25 @@ public class Timer : MonoBehaviour
 
         timertext.text = minutes + ":" + seconds;
 
+
     }
+
+    public void UpdateHealth()
+    {
+        health -= 1f;
+    }
+
+    public void NoHealth()
+    {
+        if (health <= 0)
+        {
+            Time.timeScale = 0;
+            timertext.color = Color.yellow;
+            gameover.SetActive(true);
+        }
+    }
+
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Death"))
