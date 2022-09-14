@@ -10,6 +10,7 @@ public class Timer : MonoBehaviour
     public Text timertext;
     private float startTime;
     public GameObject gameover;
+    public TextMeshProUGUI healthtext;
 
 
 
@@ -20,9 +21,9 @@ public class Timer : MonoBehaviour
     {
         startTime = Time.time;
         Time.timeScale = 1;
-        health = 2f;
+        health = 10f;
 
-
+        healthtext.text = "Health: " + health.ToString();
     }
 
     // Update is called once per frame
@@ -37,12 +38,15 @@ public class Timer : MonoBehaviour
 
         timertext.text = minutes + ":" + seconds;
 
+        
+
         NoHealth();
     }
 
     public void UpdateHealth()
     {
         health -= 1f;
+        healthtext.text = "Health: " + health.ToString();
     }
 
     public void NoHealth()
