@@ -6,12 +6,12 @@ public class DamagePlayer : MonoBehaviour
 {
     
 
-    PlayerTwoMovement playerTwoMovement;
+    Timer timer;
 
     // Start is called before the first frame update
     void Start()
     {
-        playerTwoMovement = GetComponent<PlayerTwoMovement>();
+        timer = GetComponent<Timer>();
     }
 
     // Update is called once per frame
@@ -30,7 +30,7 @@ public class DamagePlayer : MonoBehaviour
         if (collision.gameObject.tag == "Player")
         {
             Debug.Log("hit player");
-            GameObject.FindObjectOfType<PlayerTwoMovement>().UpdateHealth();
+            GameObject.FindObjectOfType<Timer>().UpdateHealth();
         }
     }
 }

@@ -37,7 +37,7 @@ public class Timer : MonoBehaviour
 
         timertext.text = minutes + ":" + seconds;
 
-
+        NoHealth();
     }
 
     public void UpdateHealth()
@@ -58,7 +58,7 @@ public class Timer : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Death"))
+        if (collision.CompareTag("DeathBox"))
         {
             Time.timeScale = 0;
             timertext.color = Color.yellow;

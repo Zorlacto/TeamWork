@@ -16,7 +16,7 @@ public class PlayerTwoMovement : MonoBehaviour
 
     public GameObject player;
 
-    public float health;
+    
 
     DamagePlayer damagePlayer;
 
@@ -24,7 +24,7 @@ public class PlayerTwoMovement : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         grounded = false;
-        health = 10f;
+        
     }
 
     // Update is called once per frame
@@ -59,10 +59,6 @@ public class PlayerTwoMovement : MonoBehaviour
     }
 
 
-    public void UpdateHealth()
-    {
-        health -= 1f;
-    }
 
     void isGrounded()
     {
