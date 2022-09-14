@@ -19,7 +19,7 @@ public class SpawnDodgeBalls : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        spawnPerSecond = Random.Range(2f, 4f);
+        spawnPerSecond = Random.Range(8f, 14f);
         timer = 0;
         //Debug.Log(numberboxes.Length);
         boxSpeed = Random.Range(8f, 12f);
