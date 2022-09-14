@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class SceneLoader : MonoBehaviour
 {
+  
     public GameObject gameover;
     public void Quitgame()
     {
@@ -14,7 +15,17 @@ public class SceneLoader : MonoBehaviour
     public void RestartGame()
     {
         Time.timeScale = 1;
-        SceneManager.LoadScene(0, LoadSceneMode.Single);
+        SceneManager.LoadScene(1, LoadSceneMode.Single);
         gameover.SetActive(false);
+    }
+
+    public void StartGame()
+    {
+        SceneManager.LoadScene(1, LoadSceneMode.Single);
+    }
+
+    public void MainMenu()
+    {
+        SceneManager.LoadScene(0, LoadSceneMode.Single);
     }
 }
