@@ -7,6 +7,14 @@ public class PlayerOneMovement : MonoBehaviour
 
     Rigidbody2D rb;
 
+    public float jumpforce;
+    public float speed;
+
+    public bool grounded;
+
+    public Transform groundCheck;
+    public LayerMask groundLayer;
+    public GameObject player;
 
 
     void Start()
@@ -17,13 +25,38 @@ public class PlayerOneMovement : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        if (Input.GetKey(KeyCode.D))
+
+        isGrounded();
+
+        HorizontalMovement();
+
+    }
+
+    void isGrounded()
+    {
+        grounded = Physics2D.OverlapCircle(groundCheck.position, .52f, groundLayer);
+    }
+
+
+    void HorizontalMovement()
+    {
+        if (grounded)
         {
-            rb.velocity = new Vector2(5, 0);
+            if (Input.GetKey(KeyCode.D) /*&& grounded*/)
+            {
+                rb.velocity = new Vector2(speed, rb.velocity.y);
+            }
+
+            if (Input.GetKey(KeyCode.A) /*&& grounded*/)
+            {
+                rb.velocity = new Vector2(-speed, rb.velocity.y);
+            }
         }
-        if (Input.GetKey(KeyCode.A))
+        /*else
         {
-            rb.velocity = new Vector2(-5, 0);
-        }
+            float dragTime = 1f;
+            dragTime = 7f;
+            rb.velocity = new Vector2(dragTime, rb.velocity.y);
+        }*/
     }
 }
