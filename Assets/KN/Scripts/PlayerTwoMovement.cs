@@ -23,16 +23,16 @@ public class PlayerTwoMovement : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        if (Input.GetKeyDown(KeyCode.UpArrow) && grounded)
+        if ((Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.J)) && grounded)
         {
             rb.velocity = new Vector2(0, jumpforce);
         }
 
-        if (Input.GetKey(KeyCode.RightArrow))
+        if (Input.GetKey(KeyCode.L) || Input.GetKey(KeyCode.RightArrow))
         {
             rb.velocity = new Vector2(speed, 0);
         }
-        if (Input.GetKey(KeyCode.LeftArrow))
+        if (Input.GetKey(KeyCode.J) || Input.GetKey(KeyCode.LeftArrow))
         {
             rb.velocity = new Vector2(-speed, 0);
         }
