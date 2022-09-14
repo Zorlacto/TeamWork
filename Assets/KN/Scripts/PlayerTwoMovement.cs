@@ -14,6 +14,8 @@ public class PlayerTwoMovement : MonoBehaviour
     public LayerMask groundLayer;
     public bool grounded;
 
+    public GameObject player;
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -23,26 +25,55 @@ public class PlayerTwoMovement : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        if ((Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.J)) && grounded)
-        {
-            rb.velocity = new Vector2(0, jumpforce);
-        }
-
-        if (Input.GetKey(KeyCode.L) || Input.GetKey(KeyCode.RightArrow) && grounded)
-        {
-            rb.velocity = new Vector2(speed, 0);
-        }
-        if (Input.GetKey(KeyCode.J) || Input.GetKey(KeyCode.LeftArrow) && grounded)
-        {
-            rb.velocity = new Vector2(-speed, 0);
-        }
+       
+        
 
         isGrounded();
+
+        HorizontalMovement();
+
+        
+
+    }
+
+    void HorizontalMovement()
+    {
+        if (grounded)
+        {
+            if (Input.GetKey(KeyCode.L) || Input.GetKey(KeyCode.RightArrow) /*&& grounded*/)
+            {
+                rb.velocity = new Vector2(speed, rb.velocity.y);
+            }
+
+            if (Input.GetKey(KeyCode.J) || Input.GetKey(KeyCode.LeftArrow) /*&& grounded*/)
+            {
+                rb.velocity = new Vector2(-speed, rb.velocity.y);
+            }
+        }
+        /*else
+        {
+            float dragTime = 1f;
+            dragTime = 7f;
+            if (rb.velocity.x < 0)
+            {
+                rb.velocity = new Vector2(-dragTime, rb.velocity.y);
+            }
+            else if (rb.velocity.x > 0){
+                rb.velocity = new Vector2(dragTime, rb.velocity.y);
+            }
+            
+        }*/
     }
 
     void isGrounded()
     {
-        grounded = Physics2D.OverlapCircle(groundCheck.position, 0.15f, groundLayer);
+        grounded = Physics2D.OverlapCircle(groundCheck.position, .52f, groundLayer);
+    }
+
+    private void OnDrawGizmos()
+    {
+        
+        Gizmos.DrawSphere(transform.position, 0.55f);
     }
 
     /*void OnCollisionEnter2D(Collision collision)
